@@ -7,32 +7,32 @@
         width: 100%;
         max-width: 35rem;
 
-        .link_container {
+        .link_details {
             display: flex;
             align-items: center;
+            border: 1px solid var(--bs-gray-dark);
+            border-radius: 0.2em;
             margin-bottom: 1em;
+            width: 100%;
 
-            .link_details {
-                border: 1px solid var(--bs-gray-dark);
-                border-radius: 0.2em;
+            p,
+            a {
+                padding: 0.5em 0.8em 0.5em 0.5em;
+            }
 
+            a {
                 width: 100%;
-
-                p,
-                a {
-                    padding: 0.5em 0.8em 0.5em 0.5em;
-                }
-
-                a {
-                    width: 100%;
-                    display: block;
-                }
+                display: block;
             }
 
-            .info_icon {
-                cursor: pointer;
-                margin-left: 1rem;
+            .link_title {
+                width: 100%;
             }
+        }
+
+        .info_icon {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
         }
     }
 }

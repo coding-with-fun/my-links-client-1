@@ -15,7 +15,7 @@ const LinksList = ({ links, handleList }) => {
         handleList(items);
     };
 
-    return !isUserAuthenticated ? (
+    return isUserAuthenticated ? (
         <div className="links__container">
             <DragDropContext onDragEnd={handleDraggedList}>
                 <Droppable droppableId="links">
@@ -33,15 +33,15 @@ const LinksList = ({ links, handleList }) => {
                                         index={index}
                                     >
                                         {(provided) => (
-                                            <div className="link_container">
-                                                <div
-                                                    ref={provided.innerRef}
-                                                    {...provided.draggableProps}
-                                                    {...provided.dragHandleProps}
-                                                    className="link_details"
-                                                >
-                                                    <p>{title}</p>
-                                                </div>
+                                            <div
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                className="link_details"
+                                            >
+                                                <p className="link_title">
+                                                    {title}
+                                                </p>
 
                                                 <i
                                                     className="bi bi-info-circle-fill info_icon"
