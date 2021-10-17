@@ -1,0 +1,19 @@
+.auth_form_container {
+    height: 100vh;
+
+    .auth_form {
+        max-width: 25rem;
+        width: 100%;
+
+        padding: 1.5rem 3rem 3.3rem;
+
+        .form-title {
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        @media only screen and (max-width: 25rem) {
+            padding: 1.5rem 1rem 3.3rem;
+        }
+    }
+}
