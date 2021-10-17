@@ -11,7 +11,7 @@ const WrappedRouter = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const token = localStorage.getItem("ftc-userToken");
+        const token = localStorage.getItem("my-userToken");
         handleUserAuthentication(token);
 
         // eslint-disable-next-line

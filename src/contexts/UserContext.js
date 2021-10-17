@@ -7,10 +7,10 @@ export const UserProvider = (props) => {
 
     const handleUserAuthentication = (token) => {
         if (token) {
-            localStorage.setItem("ftc-userToken", token);
+            localStorage.setItem("my-userToken", token);
             setIsUserAuthenticated(true);
         } else {
-            localStorage.removeItem("ftc-userToken");
+            localStorage.removeItem("my-userToken");
             setIsUserAuthenticated(false);
         }
     };
