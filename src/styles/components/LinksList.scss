@@ -1,0 +1,17 @@
+.links__container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+
+    .links_list {
+        width: 100%;
+        max-width: 40rem;
+
+        .link_details {
+            border: 1px solid var(--bs-gray-dark);
+            border-radius: 0.2em;
+            padding: 0.5em 0.8em 0.5em 0.5em;
+            margin-bottom: 1em;
+        }
+    }
+}

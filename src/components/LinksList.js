@@ -13,39 +13,42 @@ const LinksList = ({ links, handleList }) => {
     };
 
     return (
-        <DragDropContext onDragEnd={handleDraggedList}>
-            <Droppable droppableId="links">
-                {(provided) => (
-                    <div
-                        className="links"
-                        {...provided.droppableProps}
-                        ref={provided.innerRef}
-                    >
-                        {links.map(({ id, title }, index) => {
-                            return (
-                                <Draggable
-                                    key={id}
-                                    draggableId={id}
-                                    index={index}
-                                >
-                                    {(provided) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                        >
-                                            <p>{title}</p>
-                                        </div>
-                                    )}
-                                </Draggable>
-                            );
-                        })}
+        <div className="links__container">
+            <DragDropContext onDragEnd={handleDraggedList}>
+                <Droppable droppableId="links">
+                    {(provided) => (
+                        <div
+                            className="links_list"
+                            {...provided.droppableProps}
+                            ref={provided.innerRef}
+                        >
+                            {links.map(({ id, title }, index) => {
+                                return (
+                                    <Draggable
+                                        key={id}
+                                        draggableId={id}
+                                        index={index}
+                                    >
+                                        {(provided) => (
+                                            <div
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                className="link_details"
+                                            >
+                                                <p>{title}</p>
+                                            </div>
+                                        )}
+                                    </Draggable>
+                                );
+                            })}
 
-                        {provided.placeholder}
-                    </div>
-                )}
-            </Droppable>
-        </DragDropContext>
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
+            </DragDropContext>
+        </div>
     );
 };
 

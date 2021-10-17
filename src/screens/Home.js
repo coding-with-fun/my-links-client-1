@@ -4,7 +4,7 @@ import FeaturedLinks from "../container/Home/FeaturedLinks";
 
 const Home = () => {
     return (
-        <div>
+        <div className="container">
             <FeaturedLinks />
             <AllLinks />
         </div>
