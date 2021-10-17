@@ -1,8 +1,13 @@
 import React from "react";
-import Home from "./screens/Home";
+import { BrowserRouter as Router } from "react-router-dom";
+import WrappedRouter from "./utils/routes";
 
 const App = () => {
-    return <Home />;
+    return (
+        <Router>
+            <WrappedRouter />
+        </Router>
+    );
 };
 
 export default App;
