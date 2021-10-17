@@ -16,7 +16,7 @@ const AuthPage = () => {
         },
     };
 
-    const [formValues, setFormValues] = useState(formData);
+    const [formDetails, setFormDetails] = useState(formData);
     const [alertInfo, setAlertInfo] = useState({
         showAlert: false,
         message: "",
@@ -24,18 +24,18 @@ const AuthPage = () => {
     });
 
     const handleFormInput = (key, value) => {
-        const localFormValues = { ...formValues };
+        const localFormValues = { ...formDetails };
 
         localFormValues[key].isValid = Boolean(value);
         localFormValues[key].value = value;
 
-        setFormValues(localFormValues);
+        setFormDetails(localFormValues);
     };
 
     const handleValidateEmail = () => {
-        const localFormValues = { ...formValues };
-        localFormValues.email.isValid = validateEmail(formValues.email.value);
-        setFormValues(localFormValues);
+        const localFormValues = { ...formDetails };
+        localFormValues.email.isValid = validateEmail(formDetails.email.value);
+        setFormDetails(localFormValues);
 
         setAlertInfo({
             showAlert: localFormValues.email.isValid,
@@ -45,16 +45,13 @@ const AuthPage = () => {
     };
 
     const handleUserAuthentication = () => {
-        localStorage.setItem("my-userToken", "abc");
-        history.replace("/");
+        Alert({ message: "Hello" });
+        // localStorage.setItem("my-userToken", "abc");
+        // history.replace("/");
     };
 
     return (
         <Fragment>
-            {alertInfo.showAlert ? (
-                <Alert message={alertInfo.message} type={alertInfo.type} />
-            ) : null}
-
             <div className="container d-flex justify-content-center align-items-center auth_form_container">
                 <div className="shadow-sm card rounded auth_form">
                     <h1 className="text-center mb-4 form-title">Sign In</h1>
@@ -64,11 +61,11 @@ const AuthPage = () => {
                             <input
                                 type="email"
                                 className={`form-control ${
-                                    formValues.email.isValid
+                                    formDetails.email.isValid
                                         ? null
                                         : "is-invalid"
                                 }`}
-                                value={formValues.email.value}
+                                value={formDetails.email.value}
                                 onChange={(e) => {
                                     handleFormInput("email", e.target.value);
                                 }}
@@ -85,11 +82,11 @@ const AuthPage = () => {
                             <input
                                 type="password"
                                 className={`form-control ${
-                                    formValues.password.isValid
+                                    formDetails.password.isValid
                                         ? null
                                         : "is-invalid"
                                 }`}
-                                value={formValues.password.value}
+                                value={formDetails.password.value}
                                 onChange={(e) => {
                                     handleFormInput("password", e.target.value);
                                 }}

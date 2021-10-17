@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-const Alert = ({ message, type }) => {
-    const [alertClass, setAlertClass] = useState("alert_show_in");
-
-    useEffect(() => {
-        setTimeout(function () {
-            setAlertClass("alert_show_out");
-        }, 3000);
-    }, []);
-
-    return (
-        <div className={`alert__container ${type} ${alertClass}`}>
-            <p>{message}</p>
-
-            <i
-                className="bi bi-x close_icon"
-                onClick={() => setAlertClass("alert_show_out")}
-            ></i>
-        </div>
-    );
+const Alert = ({ message }) => {
+    toast.error(message, {
+        position: "top-center",
+        theme: "colored",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    });
 };
 
 export default Alert;
