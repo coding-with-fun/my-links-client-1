@@ -12,13 +12,23 @@ export const LinksProvider = (props) => {
         handleFeaturedLinks();
     }, []);
 
-    const handleFeaturedLinks = () => {
-        const featuredLinks = links.featuredLinks;
+    const handleFeaturedLinks = (updatedLinks) => {
+        let featuredLinks = updatedLinks;
+
+        if (!featuredLinks) {
+            featuredLinks = links.featuredLinks;
+        }
+
         setFeaturedLinks(featuredLinks);
     };
 
-    const handleAllLinks = () => {
-        const allLinks = links.allLinks;
+    const handleAllLinks = (updatedLinks) => {
+        let allLinks = updatedLinks;
+
+        if (!allLinks) {
+            allLinks = links.allLinks;
+        }
+
         setAllLinks(allLinks);
     };
 
